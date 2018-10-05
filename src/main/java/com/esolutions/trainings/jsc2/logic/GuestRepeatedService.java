@@ -19,6 +19,7 @@ public class GuestRepeatedService {
 	public void alphabeticallySortedRepeatedGuestsByLastName() {
 		final List<Guest> allGuests = this.repository.findAll();
 
+    //comentario de prueba
 		//Write your code here!
 	}
 }
