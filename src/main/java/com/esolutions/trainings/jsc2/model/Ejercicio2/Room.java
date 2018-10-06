@@ -1,4 +1,4 @@
-package com.esolutions.trainings.jsc2.model;
+package com.esolutions.trainings.jsc2.model.Ejercicio2;
 
 public class Room {
     private int id;
