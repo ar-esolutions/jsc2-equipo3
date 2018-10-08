@@ -1,12 +1,28 @@
 package com.esolutions.trainings.jsc2.model.Ejercicio2;
+
 import java.util.GregorianCalendar;
 import java.util.Calendar;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Entity
+@Table(name = "RESERVATIONS")
 public class Reservation {
-   // private Guest guest;
+
+    @Id
+    private Long Id;
+
+    @Column
+    private Long Room_Id;
+
+    @Column
     private Date in;
+
+
+    @Column
    private Date out;
    private Room room;
 
@@ -14,7 +30,7 @@ public class Reservation {
 
         in = i;
         out = o;
-        room = ro;}
+       room = ro;}
 
     public double calcularPrecio(Room a){
         //tipo 1 ESTANDAR

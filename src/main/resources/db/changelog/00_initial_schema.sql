@@ -421,3 +421,15 @@ INSERT INTO guests (id, name) VALUES (99, 'aguilar,dorantes');
 INSERT INTO guests (id, name) VALUES (100, 'camarena,dorantes');
 
 COMMIT;
+
+CREATE TABLE reservations (
+	id          INTEGER PRIMARY KEY,
+	room_id     INTEGER NOT NULL,
+	check_in    DATE NOT NULL,
+	check_out   DATE NOT NULL,
+	price       DOUBLE NOT NULL
+);
+
+INSERT INTO reservations (id, room_id, check_in, check_out, price) VALUES (1, 1, TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'), TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'), 10);
+
+COMMIT;
