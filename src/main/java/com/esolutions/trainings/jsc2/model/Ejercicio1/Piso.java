@@ -29,15 +29,13 @@ public class Piso
         return id;
     }
 
-    public boolean buscarHabitacion(int numero)
+    public int buscarUltimaHabitacion()
     {
-        boolean a=true;
-        return a;
+        return habitaciones.size()-1;
     }
 
     public int existeHabitacion(int numero)
     {
-
         for (int i = 0; i < habitaciones.size(); i++)
         {
             if(habitaciones.get(i).getId()== numero)
@@ -47,5 +45,8 @@ public class Piso
         }
         return -1;//si devuelve -1 significa que la habitacion no existe(es decir que no ha sido creada)
     }
-
+    
+    public void agregarHabitacion(int idhabitacion, int huesped){
+        habitaciones.add(new Habitacion(idhabitacion, huesped));
+    }
 }
