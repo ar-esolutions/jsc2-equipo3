@@ -8,14 +8,15 @@ public class Reservation {
    // private Guest guest;
     private Date in;
    private Date out;
-   //private Room room;
+   private Room room;
 
-    public Reservation(Date i, Date o){
+    public Reservation(Date i, Date o, Room ro){
 
         in = i;
-        out = out; }
+        out = o;
+        room = ro;}
 
-    public double calcularPrecio(double precio1, double precio2){
+    public double calcularPrecio(Room a){
         //tipo 1 ESTANDAR
         // tipo 2 	SUITE
 
@@ -25,7 +26,7 @@ public class Reservation {
 
         Date temp = in;
 
-        while( temp.compareTo(out) != 0){
+        while(temp.compareTo(out) != 0){
             int numeroDia = obtenerNumeroDia(temp);
 
             switch(numeroDia){
@@ -61,10 +62,11 @@ public class Reservation {
             }// fin switch
 
             temp= sumarDias(temp);
+
         }//fin while
 
-        precio = (acuTarifa1*precio2)+(acuTarifa2*precio1);
-        //precio = (acuTarifa1*r.obtenerPrecioVSD())+(acuTarifa2*r.obtenerPrecioLMMJ());
+        //precio = (acuTarifa1*precio2)+(acuTarifa2*precio1);
+        precio = (acuTarifa1*a.obtenerPrecioVSD())+(acuTarifa2*a.obtenerPrecioLMMJ());
 
         return precio;}
 
@@ -78,7 +80,7 @@ public class Reservation {
     public Date sumarDias(Date d){
         Calendar cal = Calendar.getInstance();
         cal.setTime(d);
-        cal.add(Calendar.DAY_OF_YEAR, 1);
+        cal.add(Calendar.DAY_OF_YEAR,1);
         return cal.getTime();
     }
 
