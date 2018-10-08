@@ -2,26 +2,25 @@ package com.esolutions.trainings.jsc2.model.Ejercicio1;
 
 public class Habitacion
 {
-    private int piso;
     private int id;
+    private int numHuesped;
 
     public Habitacion(int piso)
     {
-        this.piso=piso;
+        this.id=id;
     }
 
-    public int getPiso()
+    public int getId()
     {
-        return piso;
-    }
-
-    public int getId() {
         return id;
     }
 
-    public void setPiso(int piso)
-    {
-        this.piso = piso;
+    public void setNumHuesped(int numHuesped) {
+        this.numHuesped = numHuesped;
+    }
+
+    public int getNumHuesped() {
+        return numHuesped;
     }
 
     public void setId(int id) {

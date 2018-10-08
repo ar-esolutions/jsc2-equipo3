@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class Hotel
 {
-    ArrayList<Huesped> huespedes = new ArrayList<>();
     ArrayList<Piso> pisos= new ArrayList<>();
 
 
@@ -11,13 +10,13 @@ public class Hotel
     {
         for (int i=0;i<tam;i++)
         {
-           Huesped nuevo= null;
-            nuevo.setHabitacion(calcularHabitacion());
+
+           this.llenarHotel();
         }
     }
 
 
-    public Habitacion calcularHabitacion()
+    public Habitacion llenarHotel()
     {
         int cantPiso=1;
         if(pisos.isEmpty())
