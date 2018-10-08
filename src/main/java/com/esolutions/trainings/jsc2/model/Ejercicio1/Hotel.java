@@ -44,7 +44,7 @@ public class Hotel
     }
 
 
-    public int generarNumeroHabitacion(int piso) {
+    private int generarNumeroHabitacion(int piso) {
         //numeroHuesped = Piso.getUltimoHuesped();
         // int numero = numeroHuesped + nuevo.getid;
         int numero = 0;
@@ -60,4 +60,13 @@ public class Hotel
 
         return -1;
     }
+    public int getGuest(int floor, int room){
+            Piso pisoActual =this.pisos.get(floor);
+        ArrayList<Habitacion> habitacionesActual= new ArrayList<>();
+        int huesped = pisoActual.existeHabitacion(room);
+            return huesped;
+    }
+
 }
+
+
