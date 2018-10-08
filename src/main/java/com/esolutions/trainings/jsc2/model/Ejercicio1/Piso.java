@@ -34,4 +34,18 @@ public class Piso
         boolean a=true;
         return a;
     }
+
+    public int existeHabitacion(int numero)
+    {
+
+        for (int i = 0; i < habitaciones.size(); i++)
+        {
+            if(habitaciones.get(i).getId()== numero)
+            {
+                return habitaciones.get(i).getNumHuesped();
+            }
+        }
+        return -1;//si devuelve -1 significa que la habitacion no existe(es decir que no ha sido creada)
+    }
+
 }
