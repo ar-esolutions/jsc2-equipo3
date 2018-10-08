@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 public class RoomController {
-    Hotel hotel = new Hotel(50000);
+    //Hotel hotel = new Hotel(50000); decomentar al final
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){

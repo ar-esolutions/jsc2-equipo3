@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Hotel
 {
-    ArrayList<Piso> pisos= new ArrayList<>();
+    static ArrayList<Piso> pisos= new ArrayList<>();
 
 
     public Hotel(int tam)
@@ -60,9 +60,8 @@ public class Hotel
 
         return -1;
     }
-    public int getGuest(int floor, int room){
-            Piso pisoActual =this.pisos.get(floor);
-        ArrayList<Habitacion> habitacionesActual= new ArrayList<>();
+    public static int getGuest(int floor, int room){
+            Piso pisoActual =pisos.get(floor);
         int huesped = pisoActual.existeHabitacion(room);
             return huesped;
     }
