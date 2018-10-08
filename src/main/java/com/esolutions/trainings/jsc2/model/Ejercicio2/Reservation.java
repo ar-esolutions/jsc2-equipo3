@@ -5,48 +5,81 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Reservation {
-    private Guest guest;
-    private Date check_in;
-    private Date check_out;
-    private double price;
+   // private Guest guest;
+    private Date in;
+   private Date out;
+   //private Room room;
 
-    public Reservation(Guest huesped, Date fechaIngreso, Date fechaSalida){
-        guest = huesped;
-        check_in = fechaIngreso;
-        check_out = fechaSalida; }
+    public Reservation(Date i, Date o){
 
+        in = i;
+        out = out; }
 
-
-
-    private double calcularPrecio(Date entrada, Date salida, int tipo){
+    public double calcularPrecio(double precio1, double precio2){
         //tipo 1 ESTANDAR
         // tipo 2 	SUITE
 
         double precio = 0;
+        int acuTarifa1 = 0; //viernes, sabado, domingo
+        int acuTarifa2= 0; // lunes, martes, miercoles, jueves
+
+        Date temp = in;
+
+        while( temp.compareTo(out) != 0){
+            int numeroDia = obtenerNumeroDia(temp);
+
+            switch(numeroDia){
+                case 1: // domingo
+                   acuTarifa1++;
+                   break;
+
+                case 2: // lunes
+                    acuTarifa2++;
+                    break;
+
+                case 3: // martes
+                    acuTarifa2++;
+                    break;
+
+                case 4: //miercoles
+                    acuTarifa2++;
+                    break;
+
+                case 5: // jueves
+                    acuTarifa2++;
+                    break;
+
+                case 6: // viernes
+                    acuTarifa1++;
+                    break;
+                case 7: // sabado
+                    acuTarifa1++;
+                    break;
+
+                default:
+                    System.out.println("Error en el numero de dia");
+            }// fin switch
+
+            temp= sumarDias(temp);
+        }//fin while
+
+        precio = (acuTarifa1*precio2)+(acuTarifa2*precio1);
+        //precio = (acuTarifa1*r.obtenerPrecioVSD())+(acuTarifa2*r.obtenerPrecioLMMJ());
+
+        return precio;}
 
 
-
-    switch(tipo){
-            case 1:
-            //    if ( entrada >= 1 && entrada <= 4)
-                    precio = 150.99;
-
-
-
-
-
-        }
-
-      //  if( entrada >= 4 && entrada <= 4 )
-
-
-        return 0;}
-
-
-    public static int getDayOfTheWeek(Date d){  // 1 = Domingo, 2 = Lunes…
+    public static int obtenerNumeroDia(Date d){  // 1 = Domingo, 2 = Lunes…
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(d);
         return cal.get(Calendar.DAY_OF_WEEK);
+    }
+
+    public Date sumarDias(Date d){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(d);
+        cal.add(Calendar.DAY_OF_YEAR, 1);
+        return cal.getTime();
     }
 
 
