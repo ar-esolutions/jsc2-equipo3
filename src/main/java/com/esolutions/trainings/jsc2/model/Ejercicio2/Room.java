@@ -1,23 +1,37 @@
 package com.esolutions.trainings.jsc2.model.Ejercicio2;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ROOMS")
 public class Room {
-    private int id;
+    @Id
+    private Long id;
+
+    @Column
     private int floor;
+
+    @Column
     private int nro;
+
+    @Column
     private String type;
 
-    public Room(int i, int f, int n, String t){
+    public Room(Long i, int f, int n, String t){
 
         id = i;
         floor = f;
         nro = n;
         type = t; }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
