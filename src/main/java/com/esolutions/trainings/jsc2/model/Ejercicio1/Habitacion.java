@@ -5,11 +5,15 @@ public class Habitacion
     private int id;
     private int numHuesped;
 
-    public Habitacion(int piso)
+    public Habitacion(int id)
     {
         this.id=id;
     }
-
+    
+    public Habitacion(int id, int numHuespued){
+        this.id = id;
+        this.numHuesped = numHuespued;
+    }
     public int getId()
     {
         return id;

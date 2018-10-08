@@ -68,4 +68,27 @@ public class Room {
                 ", type='" + type + '\'' +
                 '}';
     }
+
+    public double obtenerPrecioLMMJ(){
+        double precio = -1;
+        if(type.compareTo("ESTANDAR") == 0){
+                precio = 150.99;}
+
+        if(type.compareTo("SUITE") == 0){
+            precio = 187.99;}
+
+            return precio;}
+
+
+    public double obtenerPrecioVSD(){
+        double precio = -1;
+        if(type.compareTo("ESTANDAR") == 0){
+            precio = 191.99;}
+
+        if(type.compareTo("SUITE") == 0){
+            precio = 202.99;}
+
+        return precio;}
+
+
 }
