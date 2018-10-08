@@ -1,17 +1,34 @@
 package com.esolutions.trainings.jsc2.model.Ejercicio2;
+
 import java.util.GregorianCalendar;
 import java.util.Calendar;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Entity
+@Table(name = "RESERVATIONS")
 public class Reservation {
-    private Guest guest;
+
+    @Id
+    private Long Id;
+
+    @Column
+    private Long Room_Id;
+
+    @Column
     private Date check_in;
+
+    @Column
     private Date check_out;
+
+    @Column
     private double price;
 
-    public Reservation(Guest huesped, Date fechaIngreso, Date fechaSalida){
-        guest = huesped;
+    public Reservation(Long habitacion, Date fechaIngreso, Date fechaSalida){
+        Room_Id = habitacion;
         check_in = fechaIngreso;
         check_out = fechaSalida; }
 
