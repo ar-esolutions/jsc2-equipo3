@@ -14,11 +14,11 @@ import java.util.Date;
 
 @RestController
 public class RoomController {
-    //Hotel hotel = new Hotel(50000); decomentar al final
+    Hotel hotel = new Hotel(50000);
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
-        return new GuestResponse(null);
+        return new GuestResponse(hotel.getGuest(floor,room));
     }
 
     @GetMapping(value = "/prueba/Ejercicio2")
