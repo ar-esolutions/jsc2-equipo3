@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,12 +16,22 @@ public class GuestController {
 
     @Autowired
     public GuestController(GuestRepeatedService service) {
-		this.service = service;
-	}
+        this.service = service;
+    }
 
     @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated")
-    public List<Guest> repeatedLastName() {
-        List<Guest> guests=this.service.alphabeticallySortedRepeatedGuestsByLastName();
-        return guests;
+    public List<GuestResponse> repeatedLastName() {
+        List<Guest> guests = this.service.alphabeticallySortedRepeatedGuestsByLastName();
+        ArrayList<GuestResponse> guestsResponse = new ArrayList<>();
+        for (int i = 0; i < guests.size(); i++) {
+            Guest guestAux = guests.get(i);
+            long idAux=guestAux.getId();
+            GuestResponse guest = new GuestResponse((int)idAux);
+            guestsResponse.add(guest);
+            //return new GuestResponse(null);
+
+            //return guests;
+        }
+        return guestsResponse;
     }
 }
