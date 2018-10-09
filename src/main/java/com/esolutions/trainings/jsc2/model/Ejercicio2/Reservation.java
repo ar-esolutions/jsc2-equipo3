@@ -12,19 +12,11 @@ import java.util.Date;
 @Table(name = "RESERVATIONS")
 public class Reservation {
 
-    @Id
-    private Long Id;
-
-    @Column
-    private Long Room_Id;
-
-    @Column
     private Date in;
 
-
     @Column
-   private Date out;
-   private Room room;
+    private Date out;
+    private Room room;
 
     public Reservation(Date i, Date o, Room ro){
 
