@@ -45,7 +45,7 @@ public class RoomController {
         Room ro = new Room(id, f, n, t);
         Reservation r = new Reservation(id, i, o, ro);
         res= ""+r.calcularPrecio(ro);
-        lista.agregarAlInicio(r);
+
         //aqui falta insert de reserva a BD
 
         return res;
