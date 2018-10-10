@@ -6,12 +6,10 @@ import com.esolutions.trainings.jsc2.model.Ejercicio1.Hotel;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -31,7 +29,7 @@ public class RoomController {
     }
 
     @PostMapping(value = "/floors/{floor}/rooms/{room}/book")
-    public String getReq2(@PathVariable int floor, @PathVariable int room,@PathVariable Date check_in, @PathVariable Date check_out) {
+    public String getReq2(@PathVariable Long floor, @PathVariable Long room, @RequestParam Date checkin, @RequestParam Date checkout) {
 
         String res = "";
         //Calendar in = new GregorianCalendar();
@@ -43,13 +41,9 @@ public class RoomController {
         //Date i = in.getTime();
         //Date o = out.getTime();
 
-        long id = 0; // aqui consultar a bd
-        int f = floor;
-        int n = room; // aqui consultar a bd
-        String t = ""; // aqui consultar a bd
-
-        Room ro = new Room(id, f, n, t);
-        Reservation r = new Reservation(id, check_in, check_out, ro);
+        Room ro = service.FindRoomByFloorAndNro(floor, room);
+        Long id=(long)0;
+        Reservation r = new Reservation(id, checkin, checkout, ro);
         res= ""+r.calcularPrecio(ro);
         //lista.agregarAlInicio(r);
         //aqui falta insert de reserva a BD
