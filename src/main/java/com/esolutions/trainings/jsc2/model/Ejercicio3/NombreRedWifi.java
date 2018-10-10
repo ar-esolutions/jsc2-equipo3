@@ -48,9 +48,9 @@ public class NombreRedWifi
         return Integer.toBinaryString(numero);
     }
 
-    public int contarMayorCantidadSeguidaDeCeros(int binario)
+    public int contarMayorCantidadSeguidaDeCeros(String binario)
     {
-        String bin= Integer.toString(binario);
+        String bin=binario;
         int max=0;
 
         for (int i = 0; i < bin.length(); i++)
@@ -81,12 +81,18 @@ public class NombreRedWifi
     public String definirnombre()
     {
         String res= "HAND-" + numPiso+ "-" + numHab;
-         if(this.contarMayorCantidadSeguidaDeCeros(numHab)>0)
+        String numeroHabitacionConvertida=this.convertirABinario2(numHab);
+        String numeroPisoConveritdo=this.convertirABinario2(numPiso);
+        String concatenacionDeNumeros = this.concatenacionDeNumerosBinarios(numeroHabitacionConvertida,numeroPisoConveritdo);
+        String cantidadDeCeros="En prueba";
+        /*
+         if();
          {
-             return res = res+this.contarMayorCantidadSeguidaDeCeros(numHab);
+             return res = res+this.contarMayorCantidadSeguidaDeCeros(cantidadDeCeros);
          }
-
+            */
          return res;
+
 
     }
 }
