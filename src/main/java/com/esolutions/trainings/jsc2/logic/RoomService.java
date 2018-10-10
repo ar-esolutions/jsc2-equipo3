@@ -28,6 +28,11 @@ public class RoomService {
         final Room room= this.repository.getOne(id);
         return room;
 
+
+       // public Room FindRoomByNumPiso(Long id, long ) {
+         //   final Room room= this.repository.getOne(id);
+           // return room;
+
         //comentario de prueba
         //Write your code here!
     }
