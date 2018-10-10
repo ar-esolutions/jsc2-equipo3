@@ -1,15 +1,18 @@
 package com.esolutions.trainings.jsc2.web;
 
-import com.esolutions.trainings.jsc2.logic.GuestRepeatedService;
 import com.esolutions.trainings.jsc2.logic.RoomService;
 import com.esolutions.trainings.jsc2.model.Ejercicio1.Hotel;
+
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.esolutions.trainings.jsc2.model.Ejercicio3.NombreRedWifi;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 
-import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -45,9 +48,19 @@ public class RoomController {
         Long id=(long)0;
         Reservation r = new Reservation(id, checkin, checkout, ro);
         res= ""+r.calcularPrecio(ro);
-        //lista.agregarAlInicio(r);
+
         //aqui falta insert de reserva a BD
 
         return res;
+
+
+
+    }
+
+    @GetMapping(value = "floors/{floor}/rooms/{room}/wifi/ssid)")
+            public String getStringNombreDeRed(@PathVariable int floor, @PathVariable int room)
+    {
+        NombreRedWifi Wifi= new NombreRedWifi(floor, room);
+        return Wifi.definirnombre();
     }
 }
