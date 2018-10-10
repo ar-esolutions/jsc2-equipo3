@@ -1,5 +1,6 @@
 package com.esolutions.trainings.jsc2.logic;
 
+import com.esolutions.trainings.jsc2.db.RoomRepository;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,10 +10,10 @@ import java.util.List;
 
 @Service
 public class RoomService {
-    private final JpaRepository<Room, Long> repository;
+    private final RoomRepository repository;
 
     @Autowired
-    public RoomService(JpaRepository<Room, Long> repository) {
+    public RoomService(RoomRepository repository) {
         this.repository = repository;
     }
 
@@ -25,15 +26,16 @@ public class RoomService {
     }
 
     public Room FindRoomById(Long id) {
-        final Room room= this.repository.getOne(id);
+        final Room room = this.repository.getOne(id);
+        return room;
+    }
+
+    public Room FindRoomByFloorAndNro (Long floor, Long nro){
+        final Room room = this.repository.findRoomByFloorAndNro(floor, nro);
         return room;
 
+            //comentario de prueba
+            //Write your code here!
+        }*/
 
-       // public Room FindRoomByNumPiso(Long id, long ) {
-         //   final Room room= this.repository.getOne(id);
-           // return room;
-
-        //comentario de prueba
-        //Write your code here!
-    }
 }
