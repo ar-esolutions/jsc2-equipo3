@@ -18,7 +18,7 @@ public class RoomController {
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
-        return new GuestResponse(hotel.getGuest(floor,room));
+        return new GuestResponse(hotel.getGuest(floor-1,room-1));
     }
 
     @PostMapping(value = "/floors/{floor}/rooms/{room}/book")

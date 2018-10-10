@@ -11,7 +11,10 @@ public class Piso
     {
         this.id = piso;
         habitaciones = new ArrayList<>();
+
     }
+
+
 
     public void setHabitaciones(ArrayList<Habitacion> habitaciones) {
         this.habitaciones = habitaciones;
@@ -38,7 +41,7 @@ public class Piso
     {
         for (int i = 0; i < habitaciones.size(); i++)
         {
-            if(habitaciones.get(i).getId()== numero)
+            if(i == numero)
             {
                 return habitaciones.get(i).getNumHuesped();
             }
