@@ -2,24 +2,29 @@ package com.esolutions.trainings.jsc2.model.Ejercicio2;
 
 import java.util.GregorianCalendar;
 import java.util.Calendar;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "RESERVATIONS")
 public class Reservation {
 
+    @Id
+    private Long id;
+
+    @Column
     private Date in;
 
     @Column
     private Date out;
+
+    @ManyToOne
+    @JoinColumn(name = "ROOM_ID")
     private Room room;
 
-    public Reservation(Date i, Date o, Room ro){
+    public Reservation(Long idAux, Date i, Date o, Room ro){
 
+        id = idAux;
         in = i;
         out = o;
        room = ro;}
@@ -91,6 +96,7 @@ public class Reservation {
         cal.add(Calendar.DAY_OF_YEAR,1);
         return cal.getTime();
     }
+
 
 
 
