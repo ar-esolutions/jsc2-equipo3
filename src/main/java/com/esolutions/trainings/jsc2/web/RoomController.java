@@ -15,7 +15,7 @@ import java.util.Date;
 
 @RestController
 public class RoomController {
-    //Hotel hotel = new Hotel(50000);
+    Hotel hotel = new Hotel(50000);
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
@@ -41,7 +41,7 @@ public class RoomController {
         String t = ""; // aqui consultar a bd
 
         Room ro = new Room(id, f, n, t);
-        Reservation r = new Reservation(i, o, ro);
+        Reservation r = new Reservation(id, i, o, ro);
         res= ""+r.calcularPrecio(ro);
 
         //aqui falta insert de reserva a BD
