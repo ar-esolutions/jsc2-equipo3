@@ -1,7 +1,7 @@
 package com.esolutions.trainings.jsc2.web;
 
 import com.esolutions.trainings.jsc2.model.Ejercicio1.Hotel;
-import com.esolutions.trainings.jsc2.model.Ejercicio2.Lista;
+
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
 import com.esolutions.trainings.jsc2.model.Ejercicio3.NombreRedWifi;
