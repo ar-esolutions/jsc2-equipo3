@@ -26,7 +26,7 @@ public class RoomController {
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}/book")
     public String getReq2(@PathVariable int floor, @PathVariable int room) {
-        Lista lista = new Lista();
+
         String res = "";
         Calendar in = new GregorianCalendar();
         in.set(2018, 9, 3); //ingresando mes 10, devuelve Noviembre.
