@@ -1,5 +1,8 @@
 package com.esolutions.trainings.jsc2.model.Ejercicio2;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 import javax.persistence.*;
@@ -41,6 +44,8 @@ public class Reservation {
 
         while(temp.compareTo(out) != 0){
             int numeroDia = obtenerNumeroDia(temp);
+
+
 
             switch(numeroDia){
                 case 1: // domingo
@@ -98,7 +103,24 @@ public class Reservation {
     }
 
 
+    public ResultSet consultar(String sql) {
+        ResultSet resultado = null;
 
+
+
+
+       /* try {
+
+
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } */
+
+               return resultado;
+    }
 
 
 
