@@ -1,16 +1,14 @@
 package com.esolutions.trainings.jsc2.web;
 
+import com.esolutions.trainings.jsc2.logic.RoomService;
 import com.esolutions.trainings.jsc2.model.Ejercicio1.Hotel;
 
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
 import com.esolutions.trainings.jsc2.model.Ejercicio3.NombreRedWifi;
 import com.esolutions.trainings.jsc2.model.Ejercicio4.WifiPwd;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -20,6 +18,12 @@ import java.util.Map;
 public class RoomController {
     //ejercicio1
     Hotel hotel = new Hotel(50000);
+    RoomService service;
+
+    @Autowired
+    public RoomController(RoomService service) {
+        this.service = service;
+    }
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
