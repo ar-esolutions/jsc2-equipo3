@@ -1,7 +1,6 @@
 package com.esolutions.trainings.jsc2.model.Ejercicio1;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class Hotel {
     ArrayList<Piso> pisos = new ArrayList<>();
@@ -52,7 +51,7 @@ public class Hotel {
 
         if (parteFrac == 0)//es entero
         {
-            pisos.get(piso).agregarHabitacion(ultimahabitacion++, idhuesped);
+            pisos.get(piso).agregarHabitacion(ultimahabitacion, idhuesped);
 
             return pisos.get(piso).buscarUltimaHabitacion();
         }
@@ -61,14 +60,10 @@ public class Hotel {
     }
 
     public Integer getGuest(int floor, int room) {
-        if(floor >= this.pisos.size()){
-            return null;
-        }
-        else{
-            Piso pisoactual= this.pisos.get(floor);
-            Integer huesped = pisoactual.existeHabitacion(room);
-            return huesped;
-        }
+        Piso pisoActual = this.pisos.get(floor);
+        Integer huesped = pisoActual.existeHabitacion(room);
+        return huesped;
+
     }
 
 }

@@ -7,7 +7,7 @@ public class Habitacion
 
     public Habitacion(int id)
     {
-        this.id=id-1;
+        this.id=id;
     }
     
     public Habitacion(int id, int numHuespued){
