@@ -39,16 +39,12 @@ public class Piso
 
     public Integer existeHabitacion(int numero)
     {
-        for (int i = 0; i < habitaciones.size(); i++)
-        {
-            if(i == numero)
-            {
-                return habitaciones.get(i).getNumHuesped();
-            }
+        if(habitaciones.get(numero).getNumHuesped() != -1){
+            return habitaciones.get(numero).getNumHuesped();
         }
         return null;//si devuelve -1 significa que la habitacion no existe(es decir que no ha sido creada)
     }
-    
+
     public void agregarHabitacion(int idhabitacion, int huesped){
         habitaciones.add(new Habitacion(idhabitacion, huesped));
     }
