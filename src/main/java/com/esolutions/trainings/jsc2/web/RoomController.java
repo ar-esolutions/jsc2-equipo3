@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 
 @RestController
@@ -32,8 +34,12 @@ public class RoomController {
     }
 
     @PostMapping(value = "/floors/{floor}/rooms/{room}/book")
-    public String getReq2(@PathVariable Long floor, @PathVariable Long room, @RequestParam Date checkin, @RequestParam Date checkout) {
+    public String getReq2(@RequestBody Map<String, Object> body, @PathVariable Long floor, @PathVariable Long room) throws Exception {
 
+        String check_in=body.get("checkin").toString();
+        String check_out=body.get("checkout").toString();
+        Date checkin = new SimpleDateFormat("dd-MM-yyyy").parse(check_in);
+        Date checkout = new SimpleDateFormat("dd-MM-yyyy").parse(check_out);
         String res = "";
         //Calendar in = new GregorianCalendar();
         //in.set(2018, 9, 3); //ingresando mes 10, devuelve Noviembre.
