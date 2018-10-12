@@ -60,10 +60,15 @@ public class Hotel {
         return -1;
     }
 
-    public int getGuest(int floor, int room) {
-        Piso pisoActual = this.pisos.get(floor);
-        int huesped = pisoActual.existeHabitacion(room);
-        return huesped;
+    public Integer getGuest(int floor, int room) {
+        if(floor >= this.pisos.size()){
+            return null;
+        }
+        else{
+            Piso pisoactual= this.pisos.get(floor);
+            Integer huesped = pisoactual.existeHabitacion(room);
+            return huesped;
+        }
     }
 
 }
