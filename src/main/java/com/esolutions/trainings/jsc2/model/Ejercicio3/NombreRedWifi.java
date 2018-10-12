@@ -10,40 +10,12 @@ public class NombreRedWifi
         this.numPiso=numPiso;
     }
 
-    public String concatenacionDeNumerosBinarios(String numero, String numero2)
+    public String concatenacionDeNumerosBinarios(String piso, String habitacion)
     {
-
-       /* String A= String.valueOf(numero);
-        String B= String.valueOf(numero2);
-        String res= A + B;
-        int resultado =Integer.parseInt(res);
-        return resultado;
-        */
-
-       return numero.concat(numero2);
+       return piso.concat(habitacion);
     }
 
-    public double conversionABinario(int numero)
-    {
-        int num, exp , digito;
-        double binario;
-        num=numero;
-
-            exp=0;
-            binario=0;
-
-            while(num!=0)
-            {
-                digito=numero % 2;
-                binario = binario + digito * Math.pow(10, exp);
-                exp++;
-                num=num/2;
-            }
-
-        return binario;
-    }
-
-    public String convertirABinario2(int numero)
+    public String convertirABinario(int numero)
     {
         return Integer.toBinaryString(numero);
     }
@@ -52,17 +24,25 @@ public class NombreRedWifi
     {
         String bin=binario;
         int max=0;
-
         for (int i = 0; i < bin.length(); i++)
         {
             if(bin.charAt(i)=='0')
             {
-                int temp=0;
+                int temp=1;
                 for (int j =i+1; j <bin.length() ; j++)
                 {
                     if(bin.charAt(j)=='0')
                     {
+                        boolean bol=false;
+                        for (int k = j; k < bin.length(); k++) //valida que exista un 1 en la siguiente subcadena
+                        {
+                            if(bin.charAt(k)=='1')
+                                bol=true;
+
+                        }
+                        if (bol)
                         temp++;
+                        else temp=0;
                     }
                     else
                     {
@@ -81,18 +61,15 @@ public class NombreRedWifi
     public String definirnombre()
     {
         String res= "HAND-" + numPiso+ "-" + numHab;
-        String numeroHabitacionConvertida=this.convertirABinario2(numHab);
-        String numeroPisoConveritdo=this.convertirABinario2(numPiso);
-        String concatenacionDeNumeros = this.concatenacionDeNumerosBinarios(numeroHabitacionConvertida,numeroPisoConveritdo);
-        String cantidadDeCeros="En prueba";
-        /*
-         if();
+        String numeroPisoConveritdo=this.convertirABinario(numPiso);
+        String numeroHabitacionConvertida=this.convertirABinario(numHab);
+        String concatenacionDeNumeros = this.concatenacionDeNumerosBinarios(numeroPisoConveritdo,numeroHabitacionConvertida);
+        int cantidadDeMayorSecuenciaDeCeros= this.contarMayorCantidadSeguidaDeCeros(concatenacionDeNumeros);
+
+         if(cantidadDeMayorSecuenciaDeCeros>0)
          {
-             return res = res+this.contarMayorCantidadSeguidaDeCeros(cantidadDeCeros);
+             res+= "-"+cantidadDeMayorSecuenciaDeCeros;
          }
-            */
          return res;
-
-
     }
 }
