@@ -1,13 +1,11 @@
 package com.esolutions.trainings.jsc2.web;
 
-import com.esolutions.trainings.jsc2.logic.RoomService;
 import com.esolutions.trainings.jsc2.model.Ejercicio1.Hotel;
 
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.esolutions.trainings.jsc2.model.Ejercicio3.NombreRedWifi;
+import com.esolutions.trainings.jsc2.model.Ejercicio4.WifiPwd;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,19 +18,18 @@ import java.util.Map;
 
 @RestController
 public class RoomController {
+    //ejercicio1
     Hotel hotel = new Hotel(50000);
-    private final RoomService service;
-
-    @Autowired
-    public RoomController(RoomService service) {
-        this.service = service;
-    }
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
-        return new GuestResponse(hotel.getGuest(floor-1,room-1));
+        try{
+            return new GuestResponse(hotel.getGuest(floor-1,room-1));
+        }catch(ArrayIndexOutOfBoundsException e){
+            return null;
+        }
     }
-
+    //ejercicio2
     @PostMapping(value = "/floors/{floor}/rooms/{room}/book")
     public String getReq2(@RequestBody Map<String, Object> body, @PathVariable Long floor, @PathVariable Long room) throws Exception {
 
@@ -62,11 +59,20 @@ public class RoomController {
 
 
     }
-
-    @GetMapping(value = "floors/{floor}/rooms/{room}/wifi/ssid)")
+//ejercicio3
+    @GetMapping(value = "/floors/{floor}/rooms/{room}/wifi/ssid)")
             public String getStringNombreDeRed(@PathVariable int floor, @PathVariable int room)
     {
         NombreRedWifi Wifi= new NombreRedWifi(floor, room);
         return Wifi.definirnombre();
     }
+    //ejercicio 4
+    @GetMapping(value = "/floors/{floor}/rooms/{room}/wifi/password")
+    public long getWifiPwd(@PathVariable int floor, @PathVariable int room)
+    {
+        long n = floor + room;
+        WifiPwd wifiPwd = new WifiPwd();
+        return wifiPwd.getWifiPwd(n);
+    }
+
 }
