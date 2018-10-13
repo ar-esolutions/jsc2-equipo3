@@ -64,7 +64,7 @@ public class RoomController {
 
     }
 //ejercicio3
-    @GetMapping(value = "/floors/{floor}/rooms/{room}/wifi/ssid)")
+    @GetMapping(value = "/floors/{floor}/rooms/{room}/wifi/ssid")
             public String getStringNombreDeRed(@PathVariable int floor, @PathVariable int room)
     {
         NombreRedWifi Wifi= new NombreRedWifi(floor, room);
