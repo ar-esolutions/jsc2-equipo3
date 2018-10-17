@@ -24,17 +24,21 @@ Hago funciones para contar iteraciones del nuevo lenguaje, la ponderacion indica
 
  */
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 public class WifiPwd {
     public String getWifiPwd(int floor, int room) {
         int n = floor + room;
-        long cantJava = 0;
+        BigInteger cantJava = BigInteger.valueOf(0);
         if (n >= 2) {
             n -= 3;
-            double cantJavaD = ((Math.pow(2, n + 1) - Math.pow(2, n)) / 3) * 2;
-            cantJava = (long) cantJavaD;
-            double parteFrac = cantJavaD - cantJava;
+            BigDecimal cantJavaD = BigDecimal.valueOf(((Math.pow(2, n + 1) - Math.pow(2, n)) / 3) * 2);
+            cantJava = cantJavaD.toBigInteger();
+            BigDecimal parteFrac = cantJavaD;
+            parteFrac = parteFrac.remainder(BigDecimal.ONE);
             if ((n + 1) % 3 == 0) {
-                if (parteFrac < 0.5)
+                if (parteFrac < BigDecimal..5)
                     cantJava++;
             } else if (parteFrac > 0.5) cantJava++;
         }
