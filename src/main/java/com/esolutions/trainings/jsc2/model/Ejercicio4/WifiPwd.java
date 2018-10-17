@@ -31,14 +31,13 @@ public class WifiPwd {
         if (n > 2) {
             n -= 2;
             double cantJavaD = ((Math.pow(2, n + 1) - Math.pow(2, n)) / 3) * 2;
-            double parteFrac = cantJava - cantJavaD;
             cantJava = (long) cantJavaD;
+            double parteFrac = cantJavaD - cantJava;
             if ((n + 1) % 3 == 0) {
-                if ((parteFrac - 0.33) < 0.2) {
-                    cantJava++;
-                } else if (parteFrac > 0.5)
+                if (parteFrac < 0.5)
                     cantJava++;
             }
+            else if (parteFrac>0.5)cantJava++;
         }
         return cantJava;
     }
