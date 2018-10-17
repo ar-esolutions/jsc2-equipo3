@@ -28,8 +28,8 @@ public class NombreRedWifi
         {
             if(bin.charAt(i)=='0')
             {
-                int temp=1;
-                for (int j =i+1; j <bin.length() ; j++)
+                int temp=0;
+                for (int j =i; j <bin.length() ; j++)
                 {
                     if(bin.charAt(j)=='0')
                     {
@@ -37,23 +37,25 @@ public class NombreRedWifi
                         for (int k = j; k < bin.length(); k++) //valida que exista un 1 en la siguiente subcadena
                         {
                             if(bin.charAt(k)=='1')
+                            {
                                 bol=true;
-
+                                break;
+                            }
                         }
-                        if (bol)
-                        temp++;
+                        if (bol)//si existe suma
+                        {
+                            temp++;
+                            if(temp>max) max=temp;//si la cuenta de ceros de la subcadena es mayor a la que ya existia, reemplaza
+                        }
+
                         else temp=0;
                     }
                     else
                     {
                         break;
                     }
-                    if(temp>max)
-                        max=temp;
                 }
             }
-
-
         }
         return max;
     }

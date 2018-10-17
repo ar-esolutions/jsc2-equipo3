@@ -30,7 +30,7 @@ public class RoomService {
         return room;
     }
 
-    public Room FindRoomByFloorAndNro (Long floor, Long nro){
+    public Room FindRoomByFloorAndNro (int floor, int nro){
         final Room room = this.repository.findRoomByFloorAndNro(floor, nro);
         return room;
 
