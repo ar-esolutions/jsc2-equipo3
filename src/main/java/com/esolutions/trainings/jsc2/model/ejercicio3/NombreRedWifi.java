@@ -1,4 +1,4 @@
-package com.esolutions.trainings.jsc2.model.Ejercicio3;
+package com.esolutions.trainings.jsc2.model.ejercicio3;
 
 public class NombreRedWifi
 {

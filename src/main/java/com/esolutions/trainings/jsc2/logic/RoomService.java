@@ -1,7 +1,7 @@
 package com.esolutions.trainings.jsc2.logic;
 
 import com.esolutions.trainings.jsc2.db.RoomRepository;
-import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
+import com.esolutions.trainings.jsc2.model.ejercicio2.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,26 +16,8 @@ public class RoomService {
         this.repository = repository;
     }
 
-    public List<Room> SortedRoomsById() {
+    public List<Room> sortedRoomsById() {
         final List<Room> allRooms = this.repository.findAll();
         return allRooms;
-
-        //comentario de prueba
-        //Write your code here!
     }
-
-    public Room FindRoomById(Long id) {
-        final Room room = this.repository.getOne(id);
-        return room;
-    }
-
-    public Room FindRoomByFloorAndNro (int floor, int nro){
-        final Room room = this.repository.findRoomByFloorAndNro(floor, nro);
-        return room;
-
-            //comentario de prueba
-            //Write your code here!
-        }
-
 }
-

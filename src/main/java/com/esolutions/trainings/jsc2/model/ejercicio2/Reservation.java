@@ -1,8 +1,6 @@
-package com.esolutions.trainings.jsc2.model.Ejercicio2;
+package com.esolutions.trainings.jsc2.model.ejercicio2;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 import javax.persistence.*;
@@ -76,7 +74,7 @@ public class Reservation {
                     break;
 
                 default:
-                    System.err.println("Error en el numero de dia");
+                    System.out.println("Error en el numero de dia");
             }// fin switch
 
             temp= sumarDias(temp);

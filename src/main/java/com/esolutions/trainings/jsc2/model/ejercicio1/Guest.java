@@ -1,4 +1,4 @@
-package com.esolutions.trainings.jsc2.model.Ejercicio1;
+package com.esolutions.trainings.jsc2.model.ejercicio1;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
