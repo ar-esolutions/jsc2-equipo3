@@ -1,16 +1,16 @@
-package com.esolutions.trainings.jsc2.model.Ejercicio1;
+package com.esolutions.trainings.jsc2.model.ejercicio1;
 
 import java.util.ArrayList;
 
 public class Hotel {
-    ArrayList<Piso> pisos = new ArrayList<>();
+    private ArrayList<Piso> pisos = new ArrayList<>();
 
     public Hotel(int tam) {
         this.llenarHotel(tam);
     }
 
 
-    public void llenarHotel(int tam) {
+    private void llenarHotel(int tam) {
         pisos = new ArrayList<>();
         int huesped = 1;
         Piso primero = new Piso(1);

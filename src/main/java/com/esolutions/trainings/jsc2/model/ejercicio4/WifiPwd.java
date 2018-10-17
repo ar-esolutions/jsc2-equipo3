@@ -1,4 +1,4 @@
-package com.esolutions.trainings.jsc2.model.Ejercicio4;
+package com.esolutions.trainings.jsc2.model.ejercicio4;
 
 
 /*
