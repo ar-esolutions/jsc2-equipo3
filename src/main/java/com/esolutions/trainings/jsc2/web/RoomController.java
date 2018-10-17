@@ -73,7 +73,7 @@ public class RoomController {
         return new Ejercicio2Response(false, r.calcularPrecio(ro));
     }
 //ejercicio3
-    @RequestMapping(path = "/floors/{floor}/rooms/{room}/wifi/ssid",method = RequestMethod.GET)
+    @RequestMapping(value="/floors/{floor}/rooms/{room}/wifi/ssid")
             public NombreRedWifiResponse getStringNombreDeRedWifi(@PathVariable int floor, @PathVariable int room)
     {
         NombreRedWifi Wifi= new NombreRedWifi(floor, room);
@@ -82,11 +82,11 @@ public class RoomController {
 
     //ejercicio 4
     @GetMapping(value = "/floors/{floor}/rooms/{room}/wifi/password")
-    public long getWifiPwd(@PathVariable int floor, @PathVariable int room)
+    public WifiPwdResponse getWifiPwd(@PathVariable int floor, @PathVariable int room)
     {
-        long n = floor + room;
+
         WifiPwd wifiPwd = new WifiPwd();
-        return wifiPwd.getWifiPwd(n);
+        return new WifiPwdResponse(wifiPwd.getWifiPwd(floor,room));
     }
 
 }
