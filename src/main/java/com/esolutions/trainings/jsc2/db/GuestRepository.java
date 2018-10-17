@@ -8,8 +8,6 @@ import java.util.List;
 
 @Repository
 public interface GuestRepository extends JpaRepository<Guest, Integer> {
-    @Query("SELECT * FROM guests")
-    List<Guest> alphabeticallySortedRepeatedGuestsByLastName();
 
 }
 

@@ -85,11 +85,14 @@ public class RoomController {
 
     //ejercicio5
 
-   // @GetMapping(value = "/guests/last-name/repeated5")
-   // public String listado(@PathVariable int floor, @PathVariable int room)
-   // {
+    @GetMapping(value = "/guests/last-name/repeated5")
+    public List<String> listado()
+    {
+        List<String> res= null;
+        res.add("Hola");
+        return res;
 
-    //}
+   }
 
 
 
