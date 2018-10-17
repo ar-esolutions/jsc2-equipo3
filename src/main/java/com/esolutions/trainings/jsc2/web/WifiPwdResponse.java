@@ -9,7 +9,7 @@ public class WifiPwdResponse {
         return password;
     }
 
-    public void setPasswort(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
