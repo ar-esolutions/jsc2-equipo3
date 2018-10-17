@@ -25,20 +25,21 @@ Hago funciones para contar iteraciones del nuevo lenguaje, la ponderacion indica
  */
 
 public class WifiPwd {
-    public long getWifiPwd(long n) {
+    public String getWifiPwd( int floor, int room) {
+        int n = floor + room;
         long cantJava = 0;
-        if (n <= 2) return cantJava;
-        if (n > 2) {
-            n -= 2;
-            double cantJavaD = ((Math.pow(2, n + 1) - Math.pow(2, n)) / 3) * 2;
-            cantJava = (long) cantJavaD;
-            double parteFrac = cantJavaD - cantJava;
-            if ((n + 1) % 3 == 0) {
-                if (parteFrac < 0.5)
-                    cantJava++;
+        if (n >= 2) {
+            if (n > 2) {
+                n -= 2;
+                double cantJavaD = ((Math.pow(2, n + 1) - Math.pow(2, n)) / 3) * 2;
+                cantJava = (long) cantJavaD;
+                double parteFrac = cantJavaD - cantJava;
+                if ((n + 1) % 3 == 0) {
+                    if (parteFrac < 0.5)
+                        cantJava++;
+                } else if (parteFrac > 0.5) cantJava++;
             }
-            else if (parteFrac>0.5)cantJava++;
-        }
-        return cantJava;
+
+        } return ("PASS-"+floor+"-"+room+"-"+cantJava);
     }
 }
