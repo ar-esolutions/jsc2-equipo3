@@ -36,7 +36,7 @@ public class Reservation {
         //tipo 1 ESTANDAR
         // tipo 2 	SUITE
 
-        double precio = 0;
+        double precio;
         int acuTarifa1 = 0; //viernes, sabado, domingo
         int acuTarifa2= 0; // lunes, martes, miercoles, jueves
 
@@ -76,26 +76,26 @@ public class Reservation {
                     break;
 
                 default:
-                    System.out.println("Error en el numero de dia");
+                    System.err.println("Error en el numero de dia");
             }// fin switch
 
             temp= sumarDias(temp);
 
         }//fin while
 
-        //precio = (acuTarifa1*precio2)+(acuTarifa2*precio1);
+
         precio = (acuTarifa1*a.obtenerPrecioVSD())+(acuTarifa2*a.obtenerPrecioLMMJ());
 
         return precio;}
 
 
-    public static int obtenerNumeroDia(Date d){  // 1 = Domingo, 2 = Lunes…
+    private static int obtenerNumeroDia(Date d){  // 1 = Domingo, 2 = Lunes…
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(d);
         return cal.get(Calendar.DAY_OF_WEEK);
     }
 
-    public Date sumarDias(Date d){
+    private Date sumarDias(Date d){
         Calendar cal = Calendar.getInstance();
         cal.setTime(d);
         cal.add(Calendar.DAY_OF_YEAR,1);
