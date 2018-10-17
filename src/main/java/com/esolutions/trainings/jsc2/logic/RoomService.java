@@ -16,25 +16,8 @@ public class RoomService {
         this.repository = repository;
     }
 
-    public List<Room> SortedRoomsById() {
+    public List<Room> sortedRoomsById() {
         final List<Room> allRooms = this.repository.findAll();
         return allRooms;
-
-        //comentario de prueba
-        //Write your code here!
     }
-
-    public Room FindRoomById(Long id) {
-        final Room room = this.repository.getOne(id);
-        return room;
-    }
-
-    public Room FindRoomByFloorAndNro (int floor, int nro){
-        final Room room = this.repository.findRoomByFloorAndNro(floor, nro);
-        return room;
-
-            //comentario de prueba
-            //Write your code here!
-        }
-
 }

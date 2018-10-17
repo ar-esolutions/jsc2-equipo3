@@ -76,7 +76,7 @@ public class Reservation {
                     break;
 
                 default:
-                    System.err.println("Error en el numero de dia");
+                    System.out.println("Error en el numero de dia");
             }// fin switch
 
             temp= sumarDias(temp);

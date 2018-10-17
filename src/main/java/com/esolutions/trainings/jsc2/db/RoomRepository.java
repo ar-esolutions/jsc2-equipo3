@@ -8,6 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
-    @Query("SELECT id, floor, nro, type FROM Room r WHERE r.floor=?1 AND r.nro=?2")
-    Room findRoomByFloorAndNro(int floor, int nro);
 }

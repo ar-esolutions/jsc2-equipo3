@@ -45,7 +45,7 @@ public class RoomController {
         Date checkin = new SimpleDateFormat("yyyy-MM-dd").parse(check_in);
         Date checkout = new SimpleDateFormat("yyyy-MM-dd").parse(check_out);
 
-        List<Room> rooms = service.SortedRoomsById();
+        List<Room> rooms = service.sortedRoomsById();
         Room ro=null;
         for (int i=0; i<rooms.size(); i++){
             Room roomAux=rooms.get(i);
