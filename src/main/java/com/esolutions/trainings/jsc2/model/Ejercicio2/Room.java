@@ -20,6 +20,8 @@ public class Room {
     @Column
     private String type;
 
+    protected Room(){}
+
     public Room(Long i, int f, int n, String t){
 
         id = i;
