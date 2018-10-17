@@ -1,11 +1,11 @@
 package com.esolutions.trainings.jsc2.web;
 
 import com.esolutions.trainings.jsc2.logic.RoomService;
-import com.esolutions.trainings.jsc2.model.Ejercicio1.Hotel;
-import com.esolutions.trainings.jsc2.model.Ejercicio2.Reservation;
-import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
-import com.esolutions.trainings.jsc2.model.Ejercicio3.NombreRedWifi;
-import com.esolutions.trainings.jsc2.model.Ejercicio4.WifiPwd;
+import com.esolutions.trainings.jsc2.model.ejercicio1.Hotel;
+import com.esolutions.trainings.jsc2.model.ejercicio2.Reservation;
+import com.esolutions.trainings.jsc2.model.ejercicio2.Room;
+import com.esolutions.trainings.jsc2.model.ejercicio3.NombreRedWifi;
+import com.esolutions.trainings.jsc2.model.ejercicio4.WifiPwd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;

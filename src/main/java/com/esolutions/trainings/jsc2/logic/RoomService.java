@@ -1,7 +1,7 @@
 package com.esolutions.trainings.jsc2.logic;
 
 import com.esolutions.trainings.jsc2.db.RoomRepository;
-import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
+import com.esolutions.trainings.jsc2.model.ejercicio2.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
