@@ -75,12 +75,13 @@ public class RoomController {
 
     }
 //ejercicio3
-    @GetMapping(value = "/floors/{floor}/rooms/{room}/wifi/ssid")
-            public String getStringNombreDeRed(@PathVariable int floor, @PathVariable int room)
+    @RequestMapping(path = "/floors/{floor}/rooms/{room}/wifi/ssid",method = RequestMethod.GET)
+            public NombreRedWifiResponse getStringNombreDeRedWifi(@PathVariable int floor, @PathVariable int room)
     {
         NombreRedWifi Wifi= new NombreRedWifi(floor, room);
-        return Wifi.definirnombre();
+        return new NombreRedWifiResponse(Wifi.definirnombre());
     }
+
     //ejercicio 4
     @GetMapping(value = "/floors/{floor}/rooms/{room}/wifi/password")
     public long getWifiPwd(@PathVariable int floor, @PathVariable int room)
