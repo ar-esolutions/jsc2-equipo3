@@ -2,7 +2,6 @@ package com.esolutions.trainings.jsc2.web;
 
 import com.esolutions.trainings.jsc2.logic.RoomService;
 import com.esolutions.trainings.jsc2.model.Ejercicio1.Hotel;
-
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.Ejercicio2.Room;
 import com.esolutions.trainings.jsc2.model.Ejercicio3.NombreRedWifi;
@@ -36,13 +35,12 @@ public class RoomController {
     }
     //ejercicio2
     @PostMapping(value = "/floors/{floor}/rooms/{room}/book")
-    public String getReq2( @PathVariable int floor, @PathVariable int room, @RequestBody Map<String, Object> body) throws Exception {
+    public Ejercicio2Response getReq2( @PathVariable int floor, @PathVariable int room, @RequestBody Map<String, Object> body) throws Exception {
 
         String check_in=body.get("checkin").toString();
         String check_out=body.get("checkout").toString();
         Date checkin = new SimpleDateFormat("yyyy-MM-dd").parse(check_in);
         Date checkout = new SimpleDateFormat("yyyy-MM-dd").parse(check_out);
-        String res = "";
         //Calendar in = new GregorianCalendar();
         //in.set(2018, 9, 3); //ingresando mes 10, devuelve Noviembre.
 
@@ -65,14 +63,14 @@ public class RoomController {
         }
         Long id=(long)0;
         Reservation r = new Reservation(id, checkin, checkout, ro);
-        res= ""+r.calcularPrecio(ro);
 
         //aqui falta insert de reserva a BD
 
-        return res;
+        //aqui falta validacion de reservas
 
 
 
+        return new Ejercicio2Response(false, r.calcularPrecio(ro));
     }
 //ejercicio3
     @RequestMapping(path = "/floors/{floor}/rooms/{room}/wifi/ssid",method = RequestMethod.GET)
