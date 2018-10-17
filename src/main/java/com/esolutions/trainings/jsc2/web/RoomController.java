@@ -34,6 +34,9 @@ public class RoomController {
         }
     }
     //ejercicio2
+
+
+
     @PostMapping(value = "/floors/{floor}/rooms/{room}/book")
     public Ejercicio2Response getReq2( @PathVariable int floor, @PathVariable int room, @RequestBody Map<String, Object> body) throws Exception {
 
@@ -88,5 +91,17 @@ public class RoomController {
         WifiPwd wifiPwd = new WifiPwd();
         return new WifiPwdResponse(wifiPwd.getWifiPwd(floor,room));
     }
+
+
+    //ejercicio5
+
+   // @GetMapping(value = "/guests/last-name/repeated5")
+   // public String listado(@PathVariable int floor, @PathVariable int room)
+   // {
+
+    //}
+
+
+
 
 }

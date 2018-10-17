@@ -34,4 +34,24 @@ public class GuestController {
         }
         return guestsResponse;
     }
+
+
+    @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated5")
+    public List<GuestResponse> repeatedLastName5() {
+        List<Guest> guests = this.service.alphabeticallySortedRepeatedGuestsByLastName();
+        ArrayList<GuestResponse> guestsResponse = new ArrayList<>();
+        for (int i = 0; i < guests.size(); i++) {
+            Guest guestAux = guests.get(i);
+            long idAux=guestAux.getId();
+            GuestResponse guest = new GuestResponse((int)idAux);
+            guestsResponse.add(guest);
+            //return new GuestResponse(null);
+
+            //return guests;
+        }
+        return guestsResponse;
+    }
+
+
+
 }
