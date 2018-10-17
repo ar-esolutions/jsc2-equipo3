@@ -44,22 +44,12 @@ public class RoomController {
         String check_out=body.get("checkout").toString();
         Date checkin = new SimpleDateFormat("yyyy-MM-dd").parse(check_in);
         Date checkout = new SimpleDateFormat("yyyy-MM-dd").parse(check_out);
-        //Calendar in = new GregorianCalendar();
-        //in.set(2018, 9, 3); //ingresando mes 10, devuelve Noviembre.
-
-        //Calendar out = new GregorianCalendar();
-        //out.set(2018, 9, 19);//ingresando mes 10, devuelve Noviembre.
-
-        //Date i = in.getTime();
-        //Date o = out.getTime();
 
         List<Room> rooms = service.SortedRoomsById();
         Room ro=null;
-        boolean val=false;
         for (int i=0; i<rooms.size(); i++){
             Room roomAux=rooms.get(i);
             if(roomAux.getFloor()==floor && roomAux.getNro()==room ){
-                val=true;
                 ro=roomAux;
                 break;
             }
@@ -76,7 +66,7 @@ public class RoomController {
         return new Ejercicio2Response(false, r.calcularPrecio(ro));
     }
 //ejercicio3
-    @RequestMapping(value="/floors/{floor}/rooms/{room}/wifi/ssid")
+    @GetMapping(value="/floors/{floor}/rooms/{room}/wifi/ssid")
             public NombreRedWifiResponse getStringNombreDeRedWifi(@PathVariable int floor, @PathVariable int room)
     {
         NombreRedWifi Wifi= new NombreRedWifi(floor, room);
