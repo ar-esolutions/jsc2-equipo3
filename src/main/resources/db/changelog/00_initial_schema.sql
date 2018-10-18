@@ -432,6 +432,6 @@ CREATE TABLE reservations (
         REFERENCES rooms(id)
 );
 
-INSERT INTO reservations (id, room_id, check_in, check_out) VALUES (1, 1, TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'), TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'));
+--INSERT INTO reservations (id, room_id, check_in, check_out) VALUES (1, 1, TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'), TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'));
 
 COMMIT;

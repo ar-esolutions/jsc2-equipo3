@@ -11,21 +11,22 @@ import java.util.Date;
 public class Reservation {
 
     @Id
-    private Long id;
-
-    @Column
-    private Date in;
-
-    @Column
-    private Date out;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "ROOM_ID")
     private Room room;
 
-    public Reservation(Long idAux, Date i, Date o, Room ro){
+    @Column(name = "CHECK_IN")
+    private Date in;
 
-        id = idAux;
+    @Column(name = "CHECK_OUT")
+    private Date out;
+
+    protected Reservation(){}
+
+    public Reservation(Date i, Date o, Room ro){
         in = i;
         out = o;
        room = ro;}
@@ -42,8 +43,6 @@ public class Reservation {
 
         while(temp.compareTo(out) != 0){
             int numeroDia = obtenerNumeroDia(temp);
-
-
 
             switch(numeroDia){
                 case 1: // domingo
@@ -100,12 +99,8 @@ public class Reservation {
         return cal.getTime();
     }
 
-
     public ResultSet consultar(String sql) {
         ResultSet resultado = null;
-
-
-
 
        /* try {
 
@@ -117,11 +112,25 @@ public class Reservation {
             return null;
         } */
 
-               return resultado;
+       return resultado;
     }
 
+    public Room getRoom() {
+        return room;
+    }
 
+    public boolean estaOcupada(Date in, Date out){
+        if((this.in.compareTo(in) < 0 && this.out.compareTo(out) < 0) || (this.in.compareTo(in) > 0 && this.out.compareTo(out) > 0))
+            return false;
+        else
+            return true;
+    }
 
+    public Date getIn() {
+        return in;
+    }
 
-
+    public Date getOut() {
+        return out;
+    }
 }
