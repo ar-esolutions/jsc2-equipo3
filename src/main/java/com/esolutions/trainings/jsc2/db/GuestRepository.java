@@ -8,9 +8,9 @@ import java.util.List;
 
 @Repository
 public interface GuestRepository extends JpaRepository<Guest, Long> {
-   /* @Query("SELECT * FROM guests")
-    List<Guest> alphabeticallySortedRepeatedGuestsByLastName();
-*/
+//    @Query("SELECT * FROM guests")
+//    List<Guest> alphabeticallySortedRepeatedGuestsByLastName();
+//
 }
 
 

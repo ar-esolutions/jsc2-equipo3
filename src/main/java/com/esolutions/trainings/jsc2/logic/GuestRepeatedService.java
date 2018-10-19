@@ -1,5 +1,5 @@
 package com.esolutions.trainings.jsc2.logic;
-import com.esolutions.trainings.jsc2.model.ejercicio2.Guest;
+import com.esolutions.trainings.jsc2.model.ejercicio5.Guest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
