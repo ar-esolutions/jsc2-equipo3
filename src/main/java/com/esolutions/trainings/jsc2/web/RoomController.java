@@ -61,19 +61,19 @@ public class RoomController {
             }
         }
 
-        Reservation r = new Reservation(checkin, checkout, ro);
+        Reservation r = new Reservation(checkin, checkout,ro);
 
         boolean booked=true;
 
         List<Reservation> reservations=resService.SortedReservationsById(); //validacion de reservas
-        /*for (int i=0; i<reservations.size(); i++) {
+        for (int i=0; i<reservations.size(); i++) {
             Reservation resAux=reservations.get(i);
             Room roomAux=resAux.getRoom();
             if(roomAux.getFloor()==floor && roomAux.getNro()==room){
                 booked=!(resAux.estaOcupada(r.getIn(), r.getOut()));
                 break;
             }
-        }*/
+        }
 
         if(booked)
             resService.Reserve(r); //insert de reserva a BD

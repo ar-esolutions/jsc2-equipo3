@@ -11,7 +11,7 @@ import java.util.Date;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
@@ -29,7 +29,8 @@ public class Reservation {
     public Reservation(Date i, Date o, Room ro){
         in = i;
         out = o;
-       room = ro;}
+       room = ro;
+    }
 
     public double calcularPrecio(Room a){
         //tipo 1 ESTANDAR
