@@ -99,22 +99,6 @@ public class Reservation {
         return cal.getTime();
     }
 
-    public ResultSet consultar(String sql) {
-        ResultSet resultado = null;
-
-       /* try {
-
-
-        }
-
-        catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        } */
-
-       return resultado;
-    }
-
     public Room getRoom() {
         return room;
     }
