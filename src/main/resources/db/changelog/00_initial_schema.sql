@@ -423,7 +423,7 @@ INSERT INTO guests (id, name) VALUES (100, 'camarena,dorantes');
 COMMIT;
 
 CREATE TABLE reservations (
-	id          INTEGER PRIMARY KEY, --INTEGER DEFAULT dept_seq.nextval NOT NULL,
+	id          INTEGER PRIMARY KEY AUTO_INCREMENT, --INTEGER DEFAULT dept_seq.nextval NOT NULL,
 	room_id     INTEGER NOT NULL,
 	check_in          DATE NOT NULL,
 	check_out         DATE NOT NULL,
