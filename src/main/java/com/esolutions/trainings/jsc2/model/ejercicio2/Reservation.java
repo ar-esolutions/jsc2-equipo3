@@ -99,29 +99,4 @@ public class Reservation {
         cal.add(Calendar.DAY_OF_YEAR,1);
         return cal.getTime();
     }
-
-
-    public ResultSet consultar(String sql) {
-        ResultSet resultado = null;
-
-
-
-
-       /* try {
-
-
-        }
-
-        catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        } */
-
-               return resultado;
-    }
-
-
-
-
-
 }
