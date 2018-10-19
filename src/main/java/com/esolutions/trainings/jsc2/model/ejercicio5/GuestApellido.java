@@ -32,7 +32,7 @@ public class GuestApellido {
         return contador;
     }
 
-    public void setContador(int contador) {
+    /*public void setContador(int contador) {
         this.contador = contador;
-    }
+    }*/
 }

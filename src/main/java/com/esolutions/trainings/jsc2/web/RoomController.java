@@ -27,11 +27,14 @@ public class RoomController {
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
+
+
         try{
             return new GuestResponse(hotel.getGuest(floor-1,room-1));
         }catch(ArrayIndexOutOfBoundsException e){
             return null;
         }
+
     }
     //ejercicio2
 
@@ -55,7 +58,7 @@ public class RoomController {
             }
         }
         Long id=(long)0;
-        Reservation r = new Reservation(id, checkin, checkout, ro);
+       Reservation r = new Reservation(id, checkin, checkout, ro);
 
         //aqui falta insert de reserva a BD
 
