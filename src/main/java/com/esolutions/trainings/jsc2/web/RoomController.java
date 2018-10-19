@@ -46,8 +46,8 @@ public class RoomController {
     @PostMapping(value = "/floors/{floor}/rooms/{room}/book")
     public Ejercicio2Response getReq2( @PathVariable int floor, @PathVariable int room, @RequestBody Map<String, Object> body) throws Exception {
 
-        String check_in=body.get("checkin").toString();
-        String check_out=body.get("checkout").toString();
+        String check_in=body.get("checkIn").toString();
+        String check_out=body.get("checkOut").toString();
         Date checkin = new SimpleDateFormat("yyyy-MM-dd").parse(check_in);
         Date checkout = new SimpleDateFormat("yyyy-MM-dd").parse(check_out);
 
