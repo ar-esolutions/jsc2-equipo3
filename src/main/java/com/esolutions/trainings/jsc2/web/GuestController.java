@@ -1,7 +1,7 @@
 package com.esolutions.trainings.jsc2.web;
 
 import com.esolutions.trainings.jsc2.logic.GuestRepeatedService;
-import com.esolutions.trainings.jsc2.model.ejercicio5.Guest;
+import com.esolutions.trainings.jsc2.model.ejercicio5.Huesped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,16 +21,16 @@ public class GuestController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated")
     public List<GuestResponse> repeatedLastName() {
-        List<Guest> guests = this.service.alphabeticallySortedRepeatedGuestsByLastName();
+        List<Huesped> huespeds = this.service.alphabeticallySortedRepeatedGuestsByLastName();
         ArrayList<GuestResponse> guestsResponse = new ArrayList<>();
-        for (int i = 0; i < guests.size(); i++) {
-            Guest guestAux = guests.get(i);
-            long idAux=guestAux.getId();
+        for (int i = 0; i < huespeds.size(); i++) {
+            Huesped huespedAux = huespeds.get(i);
+            long idAux= huespedAux.getId();
             GuestResponse guest = new GuestResponse((int)idAux);
             guestsResponse.add(guest);
             //return new GuestResponse(null);
 
-            //return guests;
+            //return huespeds;
         }
         return guestsResponse;
     }
@@ -38,16 +38,16 @@ public class GuestController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated5")
     public List<GuestResponse> repeatedLastName5() {
-        List<Guest> guests = this.service.alphabeticallySortedRepeatedGuestsByLastName();
+        List<Huesped> huespeds = this.service.alphabeticallySortedRepeatedGuestsByLastName();
         ArrayList<GuestResponse> guestsResponse = new ArrayList<>();
-        for (int i = 0; i < guests.size(); i++) {
-            Guest guestAux = guests.get(i);
-            long idAux=guestAux.getId();
+        for (int i = 0; i < huespeds.size(); i++) {
+            Huesped huespedAux = huespeds.get(i);
+            long idAux= huespedAux.getId();
             GuestResponse guest = new GuestResponse((int)idAux);
             guestsResponse.add(guest);
             //return new GuestResponse(null);
 
-            //return guests;
+            //return huespeds;
         }
         return guestsResponse;
     }
