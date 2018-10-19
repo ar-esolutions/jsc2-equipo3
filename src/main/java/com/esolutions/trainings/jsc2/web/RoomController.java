@@ -1,6 +1,7 @@
 package com.esolutions.trainings.jsc2.web;
 
 import com.esolutions.trainings.jsc2.logic.RoomService;
+import com.esolutions.trainings.jsc2.logic.ReservationService;
 import com.esolutions.trainings.jsc2.model.ejercicio1.Hotel;
 import com.esolutions.trainings.jsc2.model.ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.ejercicio2.Room;
@@ -19,10 +20,12 @@ public class RoomController {
     //ejercicio1
     Hotel hotel = new Hotel(50000);
     RoomService service;
+    ReservationService resService;
 
     @Autowired
-    public RoomController(RoomService service) {
+    public RoomController(RoomService service, ReservationService resService) {
         this.service = service;
+        this.resService = resService;
     }
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
@@ -57,16 +60,25 @@ public class RoomController {
                 break;
             }
         }
-        Long id=(long)0;
-       Reservation r = new Reservation(id, checkin, checkout, ro);
 
-        //aqui falta insert de reserva a BD
+        Reservation r = new Reservation(checkin, checkout, ro);
 
-        //aqui falta validacion de reservas
+        boolean booked=true;
 
+        List<Reservation> reservations=resService.SortedReservationsById(); //validacion de reservas
+        /*for (int i=0; i<reservations.size(); i++) {
+            Reservation resAux=reservations.get(i);
+            Room roomAux=resAux.getRoom();
+            if(roomAux.getFloor()==floor && roomAux.getNro()==room){
+                booked=!(resAux.estaOcupada(r.getIn(), r.getOut()));
+                break;
+            }
+        }*/
 
+        if(booked)
+            resService.Reserve(r); //insert de reserva a BD
 
-        return new Ejercicio2Response(false, r.calcularPrecio(ro));
+        return new Ejercicio2Response(booked, r.calcularPrecio(ro));
     }
 //ejercicio3
     @GetMapping(value="/floors/{floor}/rooms/{room}/wifi/ssid")

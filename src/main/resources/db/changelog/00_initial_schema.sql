@@ -423,7 +423,7 @@ INSERT INTO guests (id, name) VALUES (100, 'camarena,dorantes');
 COMMIT;
 
 CREATE TABLE reservations (
-	id          INTEGER PRIMARY KEY,
+	id          INTEGER PRIMARY KEY, --INTEGER DEFAULT dept_seq.nextval NOT NULL,
 	room_id     INTEGER NOT NULL,
 	check_in          DATE NOT NULL,
 	check_out         DATE NOT NULL,
@@ -432,6 +432,6 @@ CREATE TABLE reservations (
         REFERENCES rooms(id)
 );
 
-INSERT INTO reservations (id, room_id, check_in, check_out) VALUES (1, 1, TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'), TO_DATE(SYSDATE, 'yyyy/mm/dd hh24:mi:ss'));
+--INSERT INTO reservations (id, room_id, check_in, check_out) VALUES (1, 1, TO_DATE('2018/10/03', 'yyyy/mm/dd'), TO_DATE('2018/10/19', 'yyyy/mm/dd'));
 
 COMMIT;

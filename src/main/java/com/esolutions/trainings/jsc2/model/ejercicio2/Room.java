@@ -1,14 +1,12 @@
 package com.esolutions.trainings.jsc2.model.ejercicio2;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ROOMS")
 public class Room {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -22,9 +20,7 @@ public class Room {
 
     protected Room(){}
 
-    public Room(Long i, int f, int n, String t){
-
-        id = i;
+    public Room(int f, int n, String t){
         floor = f;
         nro = n;
         type = t; }
