@@ -30,11 +30,14 @@ public class RoomController {
 
     @GetMapping(value = "/floors/{floor}/rooms/{room}")
     public GuestResponse getGuestNumber(@PathVariable int floor, @PathVariable int room){
+
+
         try{
             return new GuestResponse(hotel.getGuest(floor-1,room-1));
         }catch(ArrayIndexOutOfBoundsException e){
             return null;
         }
+
     }
     //ejercicio2
 
@@ -47,14 +50,6 @@ public class RoomController {
         String check_out=body.get("checkout").toString();
         Date checkin = new SimpleDateFormat("yyyy-MM-dd").parse(check_in);
         Date checkout = new SimpleDateFormat("yyyy-MM-dd").parse(check_out);
-        //Calendar in = new GregorianCalendar();
-        //in.set(2018, 9, 3); //ingresando mes 10, devuelve Noviembre.
-
-        //Calendar out = new GregorianCalendar();
-        //out.set(2018, 9, 19);//ingresando mes 10, devuelve Noviembre.
-
-        //Date i = in.getTime();
-        //Date o = out.getTime();
 
         List<Room> rooms = service.sortedRoomsById();
         Room ro=null;
@@ -105,11 +100,14 @@ public class RoomController {
 
     //ejercicio5
 
-   // @GetMapping(value = "/guests/last-name/repeated5")
-   // public String listado(@PathVariable int floor, @PathVariable int room)
-   // {
+    @GetMapping(value = "/guests/last-name/repeated5")
+    public List<String> listado()
+    {
+        List<String> res= null;
+        res.add("Hola");
+        return res;
 
-    //}
+   }
 
 
 
