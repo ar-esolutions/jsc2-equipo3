@@ -100,7 +100,7 @@ public class RoomController {
 
     //ejercicio5
 
-    @GetMapping(value = "/guests/last-name/repeated5")
+    /*@GetMapping(value = "/guests/last-name/repeated5")
     public List<String> listado()
     {
         List<String> res= null;
@@ -108,7 +108,7 @@ public class RoomController {
         return res;
 
    }
-
+*/
 
 
 
