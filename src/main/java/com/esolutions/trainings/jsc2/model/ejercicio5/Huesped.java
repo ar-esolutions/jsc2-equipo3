@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
     @Table(name = "GUESTS")
-    public class Guest {
+    public class Huesped {
         @Id
         private Long id;
 
@@ -34,7 +34,7 @@ import java.util.List;
             this.name = name;
         }
 
-        public ArrayList<String> buscarRepetidos(ArrayList<Guest> a ){
+        public ArrayList<String> buscarRepetidos(ArrayList<Huesped> a ){
             ArrayList<String> salida = new ArrayList<>();
 
             for (int i = 0; i < a.size(); i++) {
