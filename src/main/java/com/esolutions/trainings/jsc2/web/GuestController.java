@@ -1,6 +1,8 @@
 package com.esolutions.trainings.jsc2.web;
 
 import com.esolutions.trainings.jsc2.logic.GuestRepeatedService;
+import com.esolutions.trainings.jsc2.model.ejercicio5.ContenedorHuesped;
+import com.esolutions.trainings.jsc2.model.ejercicio5.GuestApellido;
 import com.esolutions.trainings.jsc2.model.ejercicio5.Huesped;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,22 +38,18 @@ public class GuestController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated5")
-    public List<GuestResponse> repeatedLastName5() {
+   /* @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated5")
+    public ArrayList<String> repeatedLastName5() {
         List<Huesped> huespeds = this.service.alphabeticallySortedRepeatedGuestsByLastName();
-        ArrayList<GuestResponse> guestsResponse = new ArrayList<>();
-        for (int i = 0; i < huespeds.size(); i++) {
-            Huesped huespedAux = huespeds.get(i);
-            long idAux= huespedAux.getId();
-            GuestResponse guest = new GuestResponse((int)idAux);
-            guestsResponse.add(guest);
-            //return new GuestResponse(null);
+        ArrayList<String> guestsResponse = new ArrayList<>();
+        ContenedorHuesped ch = new ContenedorHuesped();
 
-            //return huespeds;
-        }
-        return guestsResponse;
+        ch.buscarRepetidos((ArrayList<Huesped>) huespeds);
+
+
+        return ch.buscarRepetidos((ArrayList<Huesped>) huespeds);
     }
 
-
+*/
 
 }
