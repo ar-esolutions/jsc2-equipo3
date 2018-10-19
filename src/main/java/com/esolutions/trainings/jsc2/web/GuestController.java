@@ -20,7 +20,7 @@ public class GuestController {
     public GuestController(GuestRepeatedService service) {
         this.service = service;
     }
-
+/*
     @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated")
     public List<GuestResponse> repeatedLastName() {
         List<Huesped> huespeds = this.service.alphabeticallySortedRepeatedGuestsByLastName();
@@ -36,20 +36,19 @@ public class GuestController {
         }
         return guestsResponse;
     }
+*/
 
-
-   /* @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated5")
+    @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated")
     public ArrayList<String> repeatedLastName5() {
-        List<Huesped> huespeds = this.service.alphabeticallySortedRepeatedGuestsByLastName();
-        ArrayList<String> guestsResponse = new ArrayList<>();
+        ArrayList<Huesped> huespeds = this.service.alphabeticallySortedRepeatedGuestsByLastName();
+
         ContenedorHuesped ch = new ContenedorHuesped();
 
-        ch.buscarRepetidos((ArrayList<Huesped>) huespeds);
+        ArrayList <String> res = ch.buscarRepetidos((ArrayList<Huesped>) huespeds);
 
-
-        return ch.buscarRepetidos((ArrayList<Huesped>) huespeds);
+        return res;
     }
 
-*/
+
 
 }

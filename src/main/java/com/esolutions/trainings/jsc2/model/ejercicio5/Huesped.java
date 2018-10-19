@@ -16,6 +16,11 @@ import java.util.List;
 
         @Column(name = "name", nullable = false, unique = true)
         private String name;
+        public Huesped(){}
+        public Huesped(long i, String n){
+            id = i;
+            name = n;
+        }
 
 
         public Long getId() {

@@ -7,9 +7,11 @@ import com.esolutions.trainings.jsc2.model.ejercicio2.Reservation;
 import com.esolutions.trainings.jsc2.model.ejercicio2.Room;
 import com.esolutions.trainings.jsc2.model.ejercicio3.NombreRedWifi;
 import com.esolutions.trainings.jsc2.model.ejercicio4.WifiPwd;
+import com.esolutions.trainings.jsc2.web.GuestController.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -97,19 +99,4 @@ public class RoomController {
         return new WifiPwdResponse(wifiPwd.getWifiPwd(floor,room));
     }
 
-
-    //ejercicio5
-
-    /*@GetMapping(value = "/guests/last-name/repeated5")
-    public List<String> listado()
-    {
-        List<String> res= null;
-        res.add("Hola");
-        return res;
-
-   }
-*/
-
-
-
-}
+    }

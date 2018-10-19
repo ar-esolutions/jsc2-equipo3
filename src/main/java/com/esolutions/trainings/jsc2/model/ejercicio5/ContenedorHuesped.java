@@ -5,8 +5,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class ContenedorHuesped {
-
     private ArrayList<GuestApellido> acuApellidos;
+
+    public ContenedorHuesped(){
+        acuApellidos = new ArrayList<GuestApellido>();
+    }
 
 
     public ArrayList<String> buscarRepetidos(ArrayList<Huesped> a ){
@@ -14,9 +17,11 @@ public class ContenedorHuesped {
 
         for (int i = 0; i < a.size(); i++) {
             String apellido = obtenerApellido(a.get(i).getName());
+            apellido = Character.toUpperCase(apellido.charAt(0))+apellido.substring(1);
+            if (this.existeApellido(apellido) == 0) {
 
-            if (this.existeApellido(apellido) != -1) {
                 salida.add(apellido);
+
             } else {
                 GuestApellido ga = new GuestApellido(apellido, 1);
                 this.acuApellidos.add(ga);
@@ -50,6 +55,7 @@ public class ContenedorHuesped {
         for(int i = 0; i < acuApellidos.size(); i++){
             if (acuApellidos.get(i).getApellido().compareTo(apellido) == 0 ){
                 res = i;
+                return 0;
             }
         }
         return res;

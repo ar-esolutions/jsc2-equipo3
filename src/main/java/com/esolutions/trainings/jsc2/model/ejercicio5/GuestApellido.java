@@ -6,9 +6,7 @@ public class GuestApellido {
 
     public GuestApellido(){
         apellido = "";
-        contador= 0;
-
-    }
+        contador= 0;  }
 
     public GuestApellido(String a, int c){
         apellido = a;
@@ -32,7 +30,4 @@ public class GuestApellido {
         return contador;
     }
 
-    /*public void setContador(int contador) {
-        this.contador = contador;
-    }*/
-}
+  }
