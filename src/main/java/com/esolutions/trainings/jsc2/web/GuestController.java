@@ -1,7 +1,7 @@
 package com.esolutions.trainings.jsc2.web;
 
 import com.esolutions.trainings.jsc2.logic.GuestRepeatedService;
-import com.esolutions.trainings.jsc2.model.Ejercicio5.Guest;
+import com.esolutions.trainings.jsc2.model.ejercicio5.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,11 +29,13 @@ public class GuestController {
             GuestResponse guest = new GuestResponse((int)idAux);
             guestsResponse.add(guest);
             //return new GuestResponse(null);
+
             //return guests;
         }
         return guestsResponse;
     }
-/*
+
+
     @RequestMapping(method = RequestMethod.GET, path = "/guests/last-name/repeated5")
     public List<GuestResponse> repeatedLastName5() {
         List<Guest> guests = this.service.alphabeticallySortedRepeatedGuestsByLastName();
@@ -44,12 +46,12 @@ public class GuestController {
             GuestResponse guest = new GuestResponse((int)idAux);
             guestsResponse.add(guest);
             //return new GuestResponse(null);
+
             //return guests;
         }
         return guestsResponse;
     }
 
 
-*/
 
 }

@@ -1,23 +1,23 @@
 package com.esolutions.trainings.jsc2.logic;
 
-import com.esolutions.trainings.jsc2.db.GuestRepository;
-import com.esolutions.trainings.jsc2.model.Ejercicio5.Guest;
+import com.esolutions.trainings.jsc2.model.ejercicio5.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Service
 public class GuestRepeatedService {
-	private final GuestRepository repository;
+	private final JpaRepository<Guest, Long> repository;
 
 	@Autowired
-	public GuestRepeatedService(GuestRepository repository) {
+	public GuestRepeatedService(JpaRepository<Guest, Long> repository) {
 		this.repository = repository;
 	}
 
-	public List<Guest> alphabeticallySortedRepeatedGuestsByLastName() {
-		final List<Guest> allGuests = this.repository.findAll();
+	public ArrayList<Guest> alphabeticallySortedRepeatedGuestsByLastName() {
+		final ArrayList<Guest> allGuests = (ArrayList<Guest>) this.repository.findAll();
 		return allGuests;
     //comentario de prueba
 		//Write your code here!
@@ -28,4 +28,3 @@ public class GuestRepeatedService {
 
 
 }
-

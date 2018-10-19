@@ -41,8 +41,7 @@ public class Hotel {
 
 
     private int generarNumeroHabitacion(int piso, int idhuesped) {
-        //numeroHuesped = Piso.getUltimoHuesped();
-        // int numero = numeroHuesped + nuevo.getid;
+
         int ultimahabitacion = pisos.get(piso).buscarUltimaHabitacion();
         int ultimohuesped = pisos.get(piso).getHabitaciones().get(ultimahabitacion).getNumHuesped();
         int numero = idhuesped + ultimohuesped;
